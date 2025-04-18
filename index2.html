@@ -1,0 +1,208 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rval Tama To-Do List</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+    :root {
+      --toska: #40e0d0;
+      --toska-dark: #2cb5ab;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Jua', sans-serif;
+      background-color: var(--white);
+      color: var(--toska-dark);
+      transition: all 1s ease;
+      overflow: hidden;
+    }
+
+    .landing {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(to bottom right, var(--toska), #e0ffff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 999;
+      transition: opacity 1s ease;
+    }
+
+    .landing h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: white;
+      text-shadow: 2px 2px 4px var(--toska-dark);
+      animation: fadeIn 2s ease;
+    }
+
+    .landing p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: white;
+      text-shadow: 1px 1px 3px var(--toska-dark);
+      animation: fadeIn 2.5s ease;
+    }
+
+    .landing button {
+      background: white;
+      color: var(--toska);
+      border: none;
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: popUp 3s ease;
+    }
+
+    .landing button:hover {
+      transform: scale(1.05);
+      background-color: #e0f7fa;
+      color: var(--toska-dark);
+    }
+
+    .floating-heart, .sakura, .shine {
+      position: absolute;
+    }
+
+    .floating-heart {
+      animation: float 6s ease-in-out infinite;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .floating-cloud {
+      position: absolute;
+      animation: cloudMove 60s linear infinite;
+      opacity: 0.4;
+    }
+
+    .sakura {
+      width: 30px;
+      height: 30px;
+      background-image: url('https://i.imgur.com/6b6psnA.png');
+      background-size: cover;
+      animation: fall 10s linear infinite;
+    }
+
+    .shine {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      animation: pulse 5s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    .marquee {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 0;
+      color: var(--toska-dark);
+      font-size: 1.2rem;
+      font-weight: bold;
+      overflow: hidden;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-200px); opacity: 0; }
+    }
+
+    @keyframes cloudMove {
+      0% { left: -200px; top: 50px; }
+      100% { left: 120%; top: 50px; }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes popUp {
+      from {transform: scale(0.5); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    @keyframes pulse {
+      0%, 100% {transform: scale(1); opacity: 0.6;}
+      50% {transform: scale(1.2); opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="landing" id="landing">
+    <h1>안녕! WEBSITE TO - DO LIST RIVAL PRATAMA</h1>
+    <p>web ini di design untuk menjadi seseorang yang lebih baik dan produktif ya 여러분</p>
+    <button onclick="window.location.href='index.html'">Masuk</button>
+
+    <!-- Hangeul melayang -->
+    <div class="floating-heart" style="top: 80%; left: 20%; animation-delay: 0s;">한</div>
+    <div class="floating-heart" style="top: 85%; left: 50%; animation-delay: 1s;">글</div>
+    <div class="floating-heart" style="top: 90%; left: 70%; animation-delay: 2s;">사</div>
+    <div class="floating-heart" style="top: 88%; left: 30%; animation-delay: 3s;">랑</div>
+    <div class="floating-heart" style="top: 92%; left: 60%; animation-delay: 4s;">해</div>
+
+    <!-- Awan -->
+    <img src="https://pngimg.com/uploads/cloud/cloud_PNG16.png" class="floating-cloud" style="top: 30px; left: -150px; width: 150px;">
+    <img src="https://pngimg.com/uploads/cloud/cloud_PNG16.png" class="floating-cloud" style="top: 100px; left: -300px; width: 200px; animation-delay: 15s;">
+
+    <!-- Bunga sakura -->
+    <div class="sakura" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="sakura" style="left: 30%; animation-delay: 3s;"></div>
+    <div class="sakura" style="left: 50%; animation-delay: 1.5s;"></div>
+    <div class="sakura" style="left: 70%; animation-delay: 4s;"></div>
+    <div class="sakura" style="left: 90%; animation-delay: 2s;"></div>
+
+    <!-- Efek shimmer glow -->
+    <div class="shine" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="shine" style="top: 70%; left: 80%; animation-delay: 2s;"></div>
+  </div>
+
+  <!-- Tulisan berjalan -->
+  <div class="marquee">
+    <span>Terima kasih sudah mampir ke Rval Tama~ Semoga harimu cerah seperti langit biru Korea!</span>
+  </div>
+
+  <!-- Musik Otomatis -->
+  <audio id="bgmusic" loop>
+    <source src="BIRDS OF FEATHER.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bgmusic');
+      document.body.addEventListener('click', () => {
+        audio.play();
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>
